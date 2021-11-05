@@ -52,7 +52,7 @@ austrianparties <- merge(austrianparties,colors, all.x=T)
 ```
 
 ### Access all party color data
-If you just want the data set, you can type
+If you just want the data set, you can do so by assigning the object 'partycolorsdataset' to any object:
 ``` R
 partycolors <- partycolorsdataset
 ```
