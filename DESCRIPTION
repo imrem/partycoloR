@@ -1,0 +1,14 @@
+Package: partycoloR
+Title: Easily access the party colors of thousands of parties around the world
+Version: 0.0.0.9000
+Authors@R: 
+    person("Michael", "Imre", , "michael.imre@uni-mannheim.de", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-1831-2083"))
+Description: This package provides easy access to the official party colors of thousands of parties around the world in hex triplet, RGB or CMYK format. IDs from the Party Facts project (https://partyfacts.herokuapp.com) are used to identify the parties, data was collected on Wikidata, Wikipedia, and supplemented by own research.
+License: use_mit_license()
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Depends: 
+    R (>= 2.10)
+LazyData: true
