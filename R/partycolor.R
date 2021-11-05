@@ -52,7 +52,7 @@ partycolor <- function(ids,
   if(include_source==TRUE) {
     type <- c(type,"source")
   }
-  partyfacts_id <- data.frame(ids)
+  partyfacts_id <- data.frame(as.vector(ids))
   names(partyfacts_id)[1] <- "partyfacts_id"
   merged <- merge(partyfacts_id,partycolorsdataset,all.x=T)
   requestedvars <- merged[,type]
