@@ -60,7 +60,10 @@ partycolor <- function(ids,
   }
   partyfacts_id <- data.frame(as.vector(ids))
   names(partyfacts_id)[1] <- "partyfacts_id"
+  partyfacts_id$mergeorder <- rownames(partyfacts_id)
   merged <- merge(partyfacts_id,partycolorsdataset,all.x=T)
+  merged <- merged[order(merged$mergeorder),]
+  merged$mergeorder <- NULL
   requestedvars <- merged[,type]
   
   return(requestedvars)
