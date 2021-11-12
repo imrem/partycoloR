@@ -10,7 +10,8 @@ partycolor(
   websafe = FALSE,
   include_ids = FALSE,
   include_description = FALSE,
-  include_source = FALSE
+  include_source = FALSE,
+  include_multiple = FALSE
 )
 }
 \arguments{
@@ -28,8 +29,12 @@ frame that already has the ids this is usually not helpful, default is FALSE.}
 \item{include_description}{logical: should the name of the color (e.g. "Dark blue") be included in the output?
 Default is FALSE.}
 
-\item{include_source}{logical: should the data source of the color be included in the output? Can be wikidata,
-wikipedia and manually added by the package creator, default is FALSE.}
+\item{include_source}{logical: should the data source of the color be included in the output? Can be wikidata or
+wikipedia, default is FALSE.}
+
+\item{include_multiple}{logical: in some cases parties have multiple party colors, in these cases only one of them
+is included in this data set. Should information on whether the party has multiple colors according to the source,
+default is FALSE.}
 }
 \description{
 Returns the colors of parties

@@ -50,14 +50,3 @@ The code chunk above just adds the hex codes to all parties in the data frame. T
 colors <- partycolor(austrianparties$partyfacts_id, type='all', include_ids = TRUE, include_description = TRUE, include_source = TRUE)
 austrianparties <- merge(austrianparties,colors, all.x=T)
 ```
-
-### Access all party color data
-If you just want the data set, you can do so by assigning the object 'partycolorsdataset' to any object:
-``` R
-partycolors <- partycolorsdataset
-```
-
-Accessibility
---------------
-As it heavily depends on the use case which colors will be displayed in a graph together I, unfortunately, have no way of making this colorblind-friendly. To make more accessible graphics, you might want to consider checking out a package like [RColorBrewer](https://cran.r-project.org/web/packages/RColorBrewer/index.html) or [Viridis](https://cran.r-project.org/web/packages/viridis/index.html), which provide options to make graphs better visible to color blind people, instead of using the real party colors.
-

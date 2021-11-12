@@ -10,9 +10,11 @@
 #' frame that already has the ids this is usually not helpful, default is FALSE.
 #' @param include_description logical: should the name of the color (e.g. "Dark blue") be included in the output? 
 #' Default is FALSE.
-#' @param include_source logical: should the data source of the color be included in the output? Can be wikidata,
-#' wikipedia and manually added by the package creator, default is FALSE.
-#' 
+#' @param include_source logical: should the data source of the color be included in the output? Can be wikidata or
+#' wikipedia, default is FALSE.
+#' @param include_multiple logical: in some cases parties have multiple party colors, in these cases only one of them
+#' is included in this data set. Should information on whether the party has multiple colors according to the source, 
+#' default is FALSE.
 #' @keywords parties colors party colors 
 #' @export
 #' @examples
@@ -30,7 +32,8 @@ partycolor <- function(ids,
                     websafe=FALSE,
                     include_ids=FALSE,
                     include_description=FALSE,
-                    include_source=FALSE) {
+                    include_source=FALSE,
+                    include_multiple=FALSE) {
   if(missing(type)) {
     type <- "hex"
   }
@@ -51,6 +54,9 @@ partycolor <- function(ids,
   }
   if(include_source==TRUE) {
     type <- c(type,"source")
+  }
+  if(include_multiple==TRUE) {
+    type <- c(type,"multiple")
   }
   partyfacts_id <- data.frame(as.vector(ids))
   names(partyfacts_id)[1] <- "partyfacts_id"
