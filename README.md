@@ -61,7 +61,7 @@ ggplot(gerparties,aes(x=lrecon,y=galtan, label=name)) +
   theme_classic() + labs(title="", x="LRECON", y="GALTAN") +
   scale_x_continuous(breaks=seq(0,10,1)) +
   scale_y_continuous(breaks=seq(0,10,1)) +
-  geom_point(size = 3, color=gerparties$hex)
+  geom_point(size = 6, color=gerparties$hex)
 ```
 
 ### Access all party color data
