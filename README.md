@@ -45,7 +45,7 @@ gerparties <- data.frame(name=c("AfD","CDU","CSU","FDP","Gruene","Linke","SPD"),
                         partyfacts_id=c(1976,1375,1731,573,1816,1545,383),
                         lrecon=c(7,5.90,6.38,7.90,3.81,1.29,3.71),
                         galtan=c(9.52,5.86,7.29,3.43,1.10,2.81,3.38))
-gerparties$color <- partycolor(gerparties$partyfacts_id)
+gerparties$hex <- partycolor(gerparties$partyfacts_id)
 ```
 The code chunk above just adds the hex codes to all parties in the data frame. To add multiple color variables to a data set it's easiest to create a seperate object and merge it to the existing data frame using the Party Facts ID
 ``` R
