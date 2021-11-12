@@ -41,11 +41,36 @@ This results in a more detailed output: color codes in three different formats, 
 Probably the most useful usecase of this package is quickly merging the colors of multiple parties to a data frame (e.g. for displaying parties using their official colors in graphs).
 
 ``` R
-austrianparties <- data.frame(names=c("OEVP","SPOE","FPOE","Gruene","Neos"), partyfacts_id=c(1329,1384,463,1659,1970))
-austrianparties$color <- partycolor(austrianparties$partyfacts_id)
+gerparties <- data.frame(name=c("AfD","CDU","CSU","FDP","Gruene","Linke","SPD"), 
+                        partyfacts_id=c(1976,1375,1731,573,1816,1545,383),
+                        lrecon=c(7,5.90,6.38,7.90,3.81,1.29,3.71),
+                        galtan=c(9.52,5.86,7.29,3.43,1.10,2.81,3.38))
+gerparties$color <- partycolor(gerparties$partyfacts_id)
 ```
 The code chunk above just adds the hex codes to all parties in the data frame. To add multiple color variables to a data set it's easiest to create a seperate object and merge it to the existing data frame using the Party Facts ID
 ``` R
-colors <- partycolor(austrianparties$partyfacts_id, type='all', include_ids = TRUE, include_description = TRUE, include_source = TRUE)
-austrianparties <- merge(austrianparties,colors, all.x=T)
+colors <- partycolor(gerparties$partyfacts_id, type='all', include_ids = TRUE, include_description = TRUE, include_source = TRUE)
+gerparties <- merge(gerparties,colors, all.x=T)
 ```
+
+### Create a graph using the party colors
+Now that the colors are added, one could easily create a graph using the colors that were just added to the data, for example:
+``` R
+library(ggplot2)
+ggplot(gerparties,aes(x=lrecon,y=galtan, label=name)) + 
+  theme_classic() + labs(title="", x="LRECON", y="GALTAN") +
+  scale_x_continuous(breaks=seq(0,10,1)) +
+  scale_y_continuous(breaks=seq(0,10,1)) +
+  geom_point(size = 3, color=gerparties$hex)
+```
+
+### Access all party color data
+If you just want the data set, you can do so by assigning the object 'partycolorsdataset' to any object:
+``` R
+partycolors <- partycolorsdataset
+```
+
+Accessibility
+--------------
+As it heavily depends on the use case which colors will be displayed in a graph together I, unfortunately, have no way of making this colorblind-friendly. To make more accessible graphics, you might want to consider checking out a package like [RColorBrewer](https://cran.r-project.org/web/packages/RColorBrewer/index.html) or [Viridis](https://cran.r-project.org/web/packages/viridis/index.html), which provide options to make graphs better visible to color blind people, instead of using the real party colors.
+
