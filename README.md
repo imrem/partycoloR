@@ -6,6 +6,8 @@ partycoloR
 
 About the package
 -----------------
+**This is a quick draft and very much work in progress, if you find mistakes or the code doesn't work I'd be very grateful if you contacted me!**
+
 This package provides easy access to the official party colors of thousands of parties around the world in hex triplet, RGB or CMYK format. 
 IDs from the [Party Facts](https://partyfacts.herokuapp.com) project  are used to identify the parties. Color data were collected on Wikidata and Wikipedia. If available, Wikidata (providing the precise hex triplets of the colors (e.g. #FF0000)) was used, if no data regarding color were available there, Wikipedia (providing color names (e.g. red)) was used as a data source. [Colorhexa](https://www.colorhexa.com) was used to add hex triplets (for colors from wikipedia), color names (for colors from wikidata) as well as RGB and CMYK codes as well as data on websafe versions of all colors. 
 
